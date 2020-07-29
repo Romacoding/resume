@@ -1,0 +1,281 @@
+:root {
+	--color-text: #000;
+	--color-bg: #fff;
+	--color-border: #4aa8b3;
+	--color-light: #e7ffff;
+	--color-accent: #4aa8b3;
+	--space-xxs: 0.125rem;
+	--space-xs: 0.25rem;
+	--space-s: 0.5rem;
+	--space-m: 1rem;
+	--space-l: 2rem;
+	--space-xl: 4rem;
+	--font-size-xs: 0.9rem;
+	--font-size-s: 0.8rem;
+	--font-size-m: 1rem;
+	--font-size-l: 1.2rem;
+	--font-size-xl: 1.4rem;
+	--font-size-xxl: 2rem;
+	--font-size-xxxl: 4rem;
+	--line-height-body: 1.4;
+	--line-height-heading: 1.2;
+	--sidebar-width: 100%;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: normal;
+	line-height: var(--line-height-body);
+	color: var(--color-text);
+	hyphens: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+	color: var(--color-text);
+}
+a:hover,
+a:focus,
+a:active {
+	color: var(--color-accent);
+}
+a:focus {
+	outline: 1px dotted;
+	outline-offset: 1px;
+}
+
+li {
+	list-style-type: none;
+}
+
+.sidebar {
+	flex-basis: var(--sidebar-width);
+	flex-shrink: 0;
+	padding: var(--space-m);
+	background-color: var(--color-light);
+	font-size: var(--font-size-m);
+}
+
+.header {
+	margin-bottom: var(--space-l);
+	line-height: var(--line-height-heading);
+}
+.header h1 {
+	margin-bottom: var(--space-m);
+	line-height: 0.9;
+	font-size: var(--font-size-xxxl);
+	font-weight: normal;
+}
+.subtitle {
+	margin-bottom: var(--space-m);
+	font-size: var(--font-size-xl);
+	font-weight: bold;
+}
+.location {
+	margin-bottom: var(--space-m);
+	font-size: var(--font-size-m);
+}
+.portrait {
+	width: 100%;
+	max-width: 100%;
+}
+.buttons {
+	margin-bottom: var(--space-l);
+}
+.buttons a {
+	display: inline-block;
+	padding: 0.15em 0.5em;
+	border: 1px solid;
+	border-radius: 0.2em;
+	text-decoration: none;
+	font-size: var(--font-size-s);
+	font-weight: bold;
+}
+.buttons a:focus {
+	outline: 0;
+	box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.aside h2 {
+	margin-bottom: var(--space-m);
+	line-height: var(--line-height-heading);
+	font-size: var(--font-size-xxl);
+	font-weight: normal;
+}
+.aside section {
+	margin-bottom: var(--space-l);
+}
+.aside p {
+	margin-bottom: var(--space-m);
+}
+.aside ul {
+	padding: 0;
+	hyphens: none;
+}
+.aside li {
+	padding: 0;
+	margin-bottom: var(--space-s);
+}
+
+.main {
+	padding: var(--space-m);
+	font-size: var(--font-size-xs);
+}
+
+.main section {
+	margin-bottom: var(--space-l);
+}
+.main h2 {
+	margin-bottom: var(--space-m);
+	line-height: var(--line-height-heading);
+	font-size: var(--font-size-xxl);
+	font-weight: normal;
+}
+.main section > p,
+.main article > p,
+.main ul {
+	margin-bottom: var(--space-m);
+}
+.main li {
+	position: relative;
+	margin-bottom: var(--space-s);
+	padding-left: 0.85em;
+}
+.main li::before {
+	content: '•';
+	position: absolute;
+	left: 0;
+	color: var(--color-border);
+}
+
+.work-experience article {
+	margin-bottom: var(--space-l);
+}
+.work-experience h4 {
+	margin-bottom: var(--space-s);
+	font-size: var(--font-size-xs);
+	font-weight: normal;
+	font-style: italic;
+}
+
+.workplace {
+	margin-bottom: var(--space-m);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	line-height: var(--line-height-heading);
+	font-size: var(--font-size-m);
+}
+.workplace__name {
+	margin: 0 0.4em 0 0;
+	font-size: var(--font-size-l);
+	font-weight: bold;
+}
+.workplace__site {
+	font-weight: normal;
+}
+.workplace__dates {
+	margin: 0;
+	font-size: var(--font-size-s);
+	font-style: italic;
+}
+.workplace__meta {
+	margin: var(--space-xs) 0 0 0;
+	flex-basis: 100%;
+	font-size: var(--font-size-m);
+}
+
+@media (min-width: 35rem) {
+	:root {
+		--sidebar-width: 25%;
+	}
+	body {
+		flex-wrap: nowrap;
+	}
+}
+
+@media print, (min-width: 60rem) {
+	.work-experience ul {
+		columns: 2;
+		column-gap: var(--space-s);
+	}
+	.work-experience li {
+		/* Don't wrap list items to the next column in Firefox:
+		   https://stackoverflow.com/a/18139561/1973105 */
+		display: table;
+	}
+}
+
+@media print {
+	:root {
+		--sidebar-width: 32%;
+	}
+	@page {
+		size: A4 portrait;
+		margin: 0.5cm 1cm;
+	}
+	html,
+	body {
+		width: 210mm;
+		/* HACK: Make the line occupy full width, I don't know why the number
+		   doesn't match 297mm of A4 and seems to be dependent on something else */
+		height: calc(317mm * 2);
+	}
+	html {
+		font-size: 11pt;
+	}
+	body {
+		flex-wrap: nowrap;
+	}
+	.sidebar {
+		padding: 0 1cm 0 0;
+		border-right: 1px solid var(--color-border);
+		background-color: initial;
+	}
+	.main {
+		padding: 0 0 0 1cm;
+	}
+	.buttons {
+		display: none;
+	}
+	a {
+		text-decoration: none;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		page-break-inside: avoid;
+		page-break-after: avoid;
+	}
+	article,
+	p,
+	blockquote,
+	li,
+	dl,
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+}
