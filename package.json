@@ -18,7 +18,9 @@
 		"make-pdf": "puppeteer-pdf-generator --path $(pwd)/public/index.html --out public/roman-ostash.pdf --format Letter"
 	},
 	"keywords": [],
-	"dependencies": {},
+	"dependencies": {
+		"pdf-puppeteer": "^1.1.10"
+	},
 	"devDependencies": {
 		"husky": "^4.2.5",
 		"lint-staged": "^10.2.8",
