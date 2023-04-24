@@ -22,8 +22,8 @@
 		"pdf-puppeteer": "^1.1.10"
 	},
 	"devDependencies": {
-		"husky": "^4.2.5",
-		"lint-staged": "^10.2.8",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.1",
 		"prettier": "^2.0.5",
 		"puppeteer-pdf-generator": "^1.0.11"
 	},
